@@ -6,7 +6,7 @@ public class Main {
   String a2 = "Banana ";
     System.out.println(a2);
   String a3 = "Apple ";
-  System.out.println(a3);
+    System.out.println(a3);
   }
 }
 // #2 "CheckSumSign"
@@ -47,3 +47,24 @@ public class Main {
     }
   }
 }
+// #5 
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(isSumInRange(5, 10));
+    }
+    public static boolean isSumInRange(int a, int b) {
+        int sum = a + b;
+        return sum >= 10 && sum <= 20;
+    }
+}
+// #6
+public class Main {
+     public static void main(String[] args) {
+        int a = -7;{
+            if (a >= 0)
+            System.out.println("Положительное");
+                else
+                    System.out.println("Отрицательное");
+         }
+         }
+     }
