@@ -6,14 +6,13 @@ public static void main (String[] args) {
 printThreeWords();
 //2
 checkSumSign();
-
 //3
 printColor();
 //4 
 compareNumbers();
-
-//5 System.out.println(isSumInRange(10, 5));
-//6 System.out.println(isNegative(0));
+//5 
+System.out.println(isSumInRange(10, 5));
+//6
 //7
 //8
 //9
@@ -71,7 +70,7 @@ compareNumbers();
   }
 
  // 5 
-    public static void main(String[] args) {
+    public static boolean isSumInRange(5,10) {
         System.out.println(isSumInRange(5, 10));
     }
     public static boolean isSumInRange(int a, int b) {
@@ -108,8 +107,8 @@ compareNumbers();
     }
 }
  // 9
- public static boolean method5() {
-        int year = 100;
+ public static boolean isLeapYeat(int year) {
+        System.out.println("\nЗадание9:");
         if (!(year % 4 == 0) || ((year % 100 == 0) && !(year % 400 == 0))) {
             return true;
         } else {
