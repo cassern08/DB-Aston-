@@ -1,0 +1,34 @@
+public class Sotrudnik {
+    private String fio;      // ФИО
+    private String dolzhnost; // Должность
+    private String email;    // Email
+    private String telefon;  // Телефон
+    private double zarplata; // Зарплата
+    private int vozrast;     // Возраст
+
+    // Конструктор класса
+    public Sotrudnik(String fio, String dolzhnost, String email, String telefon, double zarplata, int vozrast) {
+        this.fio = fio;
+        this.dolzhnost = dolzhnost;
+        this.email = email;
+        this.telefon = telefon;
+        this.zarplata = zarplata;
+        this.vozrast = vozrast;
+    }
+
+    // Метод для вывода информации об объекте
+    public void printInfo() {
+        System.out.println("ФИО: " + fio);
+        System.out.println("Должность: " + dolzhnost);
+        System.out.println("Email: " + email);
+        System.out.println("Телефон: " + telefon);
+        System.out.println("Зарплата: " + zarplata);
+        System.out.println("Возраст: " + vozrast);
+    }
+
+    // Пример использования класса
+    public static void main(String[] args) {
+        Sotrudnik sotrudnik = new Sotrudnik("Иванов Иван Иванович", "Менеджер", "ivanov@example.com", "+7 (999) 123-45-67", 50000, 30);
+        sotrudnik.printInfo();
+    }
+}
