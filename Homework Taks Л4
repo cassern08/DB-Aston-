@@ -21,7 +21,7 @@ printIsString("Учиться!", 3);
 //9
 System.out.println(isLeapYear(1600));
 //10
-int[] arr = new int[]{0, 1, 0, 1, 0, 1, 0, 0, 1, 0}
+int[] arr = new int[]{0, 1, 0, 1, 0, 1, 0, 0, 1, 0};
 //11
 int[] nums = new int[100];
 fillArrayValues(nums);
