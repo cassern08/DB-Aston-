@@ -1,0 +1,85 @@
+// Класс Животное
+abstract class Animal {
+    static int count = 0;
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+        count++;
+    }
+
+    abstract void run(int distance);
+    abstract void swim(int distance);
+
+    static int getCount() {
+        return count;
+    }
+}
+
+// Класс Собака
+class Dog extends Animal {
+    static int dogCount = 0;
+
+    Dog(String name) {
+        super(name);
+        dogCount++;
+    }
+
+    @Override
+    void run(int distance) {
+        System.out.println(name + (distance <= 500 ? " пробежал " + distance + "м." : " не может пробежать " + distance + "м."));
+    }
+
+    @Override
+    void swim(int distance) {
+        System.out.println(name + (distance <= 10 ? " проплыл " + distance + "м." : " не может проплыть " + distance + "м."));
+    }
+
+    static int getDogCount() {
+        return dogCount;
+    }
+}
+
+// Класс Кот
+class Cat extends Animal {
+    static int catCount = 0;
+
+    Cat(String name) {
+        super(name);
+        catCount++;
+    }
+
+    @Override
+    void run(int distance) {
+        System.out.println(name + (distance <= 200 ? " пробежал " + distance + "м." : " не может пробежать " + distance + "м."));
+    }
+
+    @Override
+    void swim(int distance) {
+        System.out.println(name + " не умеет плавать.");
+    }
+
+    static int getCatCount() {
+        return catCount;
+    }
+}
+
+// Класс Main
+public class Main {
+    public static void main(String[] args) {
+        Dog dogBobik = new Dog("Бобик");
+        Cat catVaska = new Cat("Васька");
+
+        dogBobik.run(150);
+        dogBobik.swim(5);
+        dogBobik.swim(15);
+
+        catVaska.run(150);
+        catVaska.run(250);
+        catVaska.swim(5);
+
+        System.out.println("Создано животных: " + Animal.getCount());
+        System.out.println("Создано собак: " + Dog.getDogCount());
+        System.out.println("Создано котов: " + Cat.getCatCount());
+    }
+}
