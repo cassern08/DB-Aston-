@@ -1,0 +1,115 @@
+// Класс Животное
+abstract class Animal {
+    static int count = 0;
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+        count++;
+    }
+
+    abstract void run(int distance);
+    abstract void swim(int distance);
+
+    static int getCount() {
+        return count;
+    }
+}
+
+// Класс Собака
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    void run(int distance) {
+        System.out.println(name + (distance <= 500 ? " пробежал " + distance + "м." : " не может пробежать " + distance + "м."));
+    }
+
+    @Override
+    void swim(int distance) {
+        System.out.println(name + (distance <= 10 ? " проплыл " + distance + "м." : " не может проплыть " + distance + "м."));
+    }
+}
+
+// Класс Кот
+class Cat extends Animal {
+    private boolean isFull = false;
+
+    Cat(String name) {
+        super(name);
+    }
+
+    @Override
+    void run(int distance) {
+        System.out.println(name + (distance <= 200 ? " пробежал " + distance + "м." : " не может пробежать " + distance + "м."));
+    }
+
+    @Override
+    void swim(int distance) {
+        System.out.println(name + " не умеет плавать.");
+    }
+
+    void eat(Bowl bowl, int amount) {
+        if (amount <= bowl.getFoodAmount()) {
+            bowl.decreaseFood(amount);
+            isFull = true;
+            System.out.println(name + " поел " + amount + " единиц еды.");
+        } else {
+            System.out.println(name + " не может поесть, недостаточно еды в миске.");
+        }
+    }
+
+    boolean isFull() {
+        return isFull;
+    }
+}
+
+// Класс Миска
+class Bowl {
+    private int foodAmount;
+
+    Bowl(int initialFood) {
+        foodAmount = Math.max(0, initialFood);
+    }
+
+    void addFood(int amount) {
+        if (amount > 0) foodAmount += amount;
+    }
+
+    void decreaseFood(int amount) {
+        foodAmount -= amount;
+    }
+
+    int getFoodAmount() {
+        return foodAmount;
+    }
+}
+
+// Класс Main
+public class Main {
+    public static void main(String[] args) {
+        Bowl bowl = new Bowl(20);
+        Cat[] cats = {new Cat("Васька"), new Cat("Мурзик"), new Cat("Барсик")};
+
+        for (Cat cat : cats) {
+            cat.eat(bowl, 10);
+        }
+
+        for (Cat cat : cats) {
+            System.out.println(cat.name + (cat.isFull() ? " сыт." : " голоден."));
+        }
+
+        bowl.addFood(15);
+        for (Cat cat : cats) {
+            cat.eat(bowl, 10);
+        }
+
+        for (Cat cat : cats) {
+            System.out.println(cat.name + (cat.isFull() ? " сыт." : " голоден."));
+        }
+
+        System.out.println("Создано животных: " + Animal.getCount());
+    }
+}
